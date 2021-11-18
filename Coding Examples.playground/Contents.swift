@@ -180,7 +180,7 @@ import Darwin
 //    }
 //    if isPalyndrome {
 //        return "YES"
-//    } else {
+//    } else {   f
 //        return "NO"
 //    }
 //}
@@ -198,8 +198,4 @@ import Darwin
 //
 //print(isPalindrome(myString: "madam"))
 
-func minSumInArray(arr: [Int]) -> Int {
-    var sum = 0
-    
-    return sum
-}
+
