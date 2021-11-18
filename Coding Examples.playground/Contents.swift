@@ -198,4 +198,19 @@ import Darwin
 //
 //print(isPalindrome(myString: "madam"))
 
+func minSumOfPairInArray(arr: [Int]) -> Int {
+    var min = Int.max
+    var secondMin = Int.max
+    for item in arr {
+        if item < min {
+            secondMin = min
+            min = item
+        } else if ((item < secondMin) && item != min){
+            secondMin = item
+        }
+    }
+    
+    return secondMin + min
+}
 
+print(minSumOfPairInArray(arr: [2, 1, 3]))
