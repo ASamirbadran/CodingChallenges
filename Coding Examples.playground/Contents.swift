@@ -199,18 +199,18 @@ import Darwin
 //print(isPalindrome(myString: "madam"))
 
 func minSumOfPairInArray(arr: [Int]) -> Int {
-    var min = Int.max
+    var firstMin = Int.max
     var secondMin = Int.max
     for item in arr {
-        if item < min {
-            secondMin = min
-            min = item
-        } else if ((item < secondMin) && item != min){
+        if item < firstMin {
+            secondMin = firstMin
+            firstMin = item
+        } else if ((item < secondMin) && item != firstMin){
             secondMin = item
         }
     }
     
-    return secondMin + min
+    return secondMin + firstMin
 }
 
 print(minSumOfPairInArray(arr: [2, 1, 3]))
