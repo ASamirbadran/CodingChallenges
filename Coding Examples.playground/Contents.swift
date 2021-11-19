@@ -231,20 +231,27 @@ import Darwin
 //
 //print (arr.filter { $0 == 0 } + arr.filter { $0 != 0  }) //another solution
 
-func findMajorityElementThatAppearsMoreThan(arr: [Int]) -> Int { //(n/2) times n is arraySize
-    var majorElement = 0
-    var majorElementOccurence = 0
-    for item in arr {
-        if majorElementOccurence == 0 {
-            majorElement = item
-        }
-        if item == majorElement {
-            majorElementOccurence += 1
-        } else {
-            majorElementOccurence -= 1
-        }
-    }
-    return majorElement
+//func findMajorityElementThatAppearsMoreThan(arr: [Int]) -> Int { //(n/2) times n is arraySize
+//    var majorElement = 0
+//    var majorElementOccurence = 0
+//    for item in arr {
+//        if majorElementOccurence == 0 {
+//            majorElement = item
+//        }
+//        if item == majorElement {
+//            majorElementOccurence += 1
+//        } else {
+//            majorElementOccurence -= 1
+//        }
+//    }
+//    return majorElement
+//}
+//print(findMajorityElementThatAppearsMoreThan(arr: [3,2,3]))
+//print(findMajorityElementThatAppearsMoreThan(arr: [-1,1,1,1,2,1]))
+
+func createDictionaryFromArrayOfTuble(arrayOfTuble: [(String,String)]) -> [String: String] {
+    var dictonary = arrayOfTuble.reduce(into: [:]) { $0[$1.0] = $1.1 }
+    return dictonary
 }
-print(findMajorityElementThatAppearsMoreThan(arr: [3,2,3]))
-print(findMajorityElementThatAppearsMoreThan(arr: [-1,1,1,1,2,1]))
+print(createDictionaryFromArrayOfTuble(arrayOfTuble: [("key1", "value1"), ("key2", "value2"), ("key3", "value3")]))
+
