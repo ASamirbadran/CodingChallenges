@@ -198,19 +198,35 @@ import Darwin
 //
 //print(isPalindrome(myString: "madam"))
 
-func minSumOfPairInArray(arr: [Int]) -> Int {
-    var firstMin = Int.max
-    var secondMin = Int.max
-    for item in arr {
-        if item < firstMin {
-            secondMin = firstMin
-            firstMin = item
-        } else if ((item < secondMin) && item != firstMin){
-            secondMin = item
-        }
-    }
-    
-    return secondMin + firstMin
-}
+//func minSumOfPairInArray(arr: [Int]) -> Int {
+//    var firstMin = Int.max
+//    var secondMin = Int.max
+//    for item in arr {
+//        if item < firstMin {
+//            secondMin = firstMin
+//            firstMin = item
+//        } else if ((item < secondMin) && item != firstMin){
+//            secondMin = item
+//        }
+//    }
+//
+//    return secondMin + firstMin
+//}
 
-print(minSumOfPairInArray(arr: [2, 1, 3]))
+//print(minSumOfPairInArray(arr: [2, 1, 3]))
+
+
+//func moveAllElementThatIsZerosToTheLeftWhileMaintaingTheOtherElementOrder(arr: inout [Int]) -> [Int]{
+//    for i in 0..<arr.count {
+//        let currentItem = arr[i]
+//        if arr[i] == 0 {
+//            arr.remove(at: i)
+//            arr.insert(currentItem, at: 0)
+//        }
+//    }
+//    return arr
+//}
+//var arr = [1,10,20,0,59,63,0,88,0]
+//print(moveAllElementThatIsZerosToTheLeftWhileMaintaingTheOtherElementOrder(arr: &arr))
+//
+//print (arr.filter { $0 == 0 } + arr.filter { $0 != 0  }) //another solution
