@@ -231,39 +231,20 @@ import Darwin
 //
 //print (arr.filter { $0 == 0 } + arr.filter { $0 != 0  }) //another solution
 
-
-////workedButbadcodeIn-:D
-//func findMajorityElementThatAppearsMoreThan(arr: [Int]) -> Int { //(n/2) times n is arraySize
-//    var majorityElement  = 0
-//    var majorityElementIndex = 0
-//    let majorityCriteria = arr.count / 2
-//    var occurenceArray: [Int] = Array(repeating: 0, count: 230)
-//
-//    for i in 0..<arr.count {
-//        let value = arr[i]
-//        occurenceArray[value] += 1
-//    }
-//    for index in 0..<occurenceArray.count {
-//        if occurenceArray[index] > majorityCriteria {
-//            majorityElement = occurenceArray[index]
-//            majorityElementIndex = index
-//        }
-//    }
-//    return majorityElementIndex
-//}
-//
-//print(findMajorityElementThatAppearsMoreThan(arr: [3,2,3])) //passed
-//print(findMajorityElementThatAppearsMoreThan(arr: [-1,1,1,1,2,1])) //issue
-
-//good solution
-func majorityElement(_ nums: [Int]) -> Int {
-    var candidate = 0
-    var vote = 0
-    nums.forEach({
-        if vote == 0 { candidate = $0 }
-        $0 == candidate ? (vote += 1) : (vote -= 1)
-    })
-    return candidate
+func findMajorityElementThatAppearsMoreThan(arr: [Int]) -> Int { //(n/2) times n is arraySize
+    var majorElement = 0
+    var majorElementOccurence = 0
+    for item in arr {
+        if majorElementOccurence == 0 {
+            majorElement = item
+        }
+        if item == majorElement {
+            majorElementOccurence += 1
+        } else {
+            majorElementOccurence -= 1
+        }
+    }
+    return majorElement
 }
-print(majorityElement([3,2,3])) //
-print(majorityElement([-1,1,1,1,2,1])) //
+print(findMajorityElementThatAppearsMoreThan(arr: [3,2,3]))
+print(findMajorityElementThatAppearsMoreThan(arr: [-1,1,1,1,2,1]))
