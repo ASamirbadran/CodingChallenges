@@ -249,15 +249,37 @@ import Darwin
 //print(findMajorityElementThatAppearsMoreThan(arr: [3,2,3]))
 //print(findMajorityElementThatAppearsMoreThan(arr: [-1,1,1,1,2,1]))
 
-func createDictionaryFromArrayOfTuble(arrayOfTuble: [(String,String)]) -> [String: String] {
-    var dictonary = arrayOfTuble.reduce(into: [:]) { $0[$1.0] = $1.1 }
-    return dictonary
+//func createDictionaryFromArrayOfTuble(arrayOfTuble: [(String,String)]) -> [String: String] {
+//    var dictonary = arrayOfTuble.reduce(into: [:]) { $0[$1.0] = $1.1 }
+//    return dictonary
+//}
+//print(createDictionaryFromArrayOfTuble(arrayOfTuble: [("key1", "value1"), ("key2", "value2"), ("key3", "value3")]))
+
+
+
+
+func insertionSort(arr: [Int]) -> [Int]{
+    var sortedArray = arr
+    
+    for index in 1..<sortedArray.count
+    {
+        let value = sortedArray[index]
+        var position = index
+        
+        while position > 0 && sortedArray[position - 1] > value {
+            sortedArray[position] = sortedArray[position - 1]
+            position -= 1
+        }
+        
+        sortedArray[position] = value
+    }
+    
+    return sortedArray
 }
-print(createDictionaryFromArrayOfTuble(arrayOfTuble: [("key1", "value1"), ("key2", "value2"), ("key3", "value3")]))
 
+print(insertionSort(arr: [70, 36, 40, 95, 22, 55, 26]))
 
-
-
+//
 
 
 
