@@ -20,6 +20,22 @@ import Darwin
 
 
 
+
+////create an interface and implement it
+//protocol PerformOperation: class {
+//    func performSmth()
+//}
+//
+//class testClass: PerformOperation {
+//    func performSmth() {
+//        print("Test")
+//    }
+//}
+
+
+
+
+
 ////singleton
 //class TestSingleton {
 //    static var shared: TestSingleton = TestSingleton()
@@ -256,65 +272,55 @@ import Darwin
 //print(createDictionaryFromArrayOfTuble(arrayOfTuble: [("key1", "value1"), ("key2", "value2"), ("key3", "value3")]))
 
 
-func insertionSort(arr: [Int]) -> [Int]{
-    var sortedArray = arr
-    
-    for index in 1..<sortedArray.count
-    {
-        let value = sortedArray[index]
-        var position = index
-        
-        while position > 0 && sortedArray[position - 1] > value {
-            sortedArray[position] = sortedArray[position - 1]
-            position -= 1
-        }
-        sortedArray[position] = value
-    }
-    return sortedArray
-}
-
-print(insertionSort(arr: [70, 36, 40, 95, 22, 55, 26]))
-
-func mergeToSortedArrayOfIntegers(firstArray: inout [Int], secondArray:inout [Int]) -> [Int]{
-    
-    var mergedArray = [Int]()
-    
-    while !firstArray.isEmpty {
-        
-        guard !secondArray.isEmpty else {
-            // there is no more item in array2,
-            // so we can just add the remaining elements from array1:
-            mergedArray += firstArray
-            return mergedArray
-        }
-        
-        var nextValue = 0
-        if firstArray.first! < secondArray.first! {
-            nextValue = firstArray.first!
-            firstArray.removeFirst()
-        } else {
-            nextValue = secondArray.first!
-            secondArray.removeFirst()
-        }
-        mergedArray.append(nextValue)
-    }
-    
-    // Add the remaining elements from array2 if any:
-    return mergedArray + secondArray
-    
-}
-
-var arr  = [1,2,3,4,5]
-var arr2  = [6,7,8,9]
-
-print(mergeToSortedArrayOfIntegers(firstArray: &arr, secondArray: &arr2))
-
-
-
-
-
-
-
+//func insertionSort(arr: [Int]) -> [Int]{
+//    var sortedArray = arr
+//
+//    for index in 1..<sortedArray.count
+//    {
+//        let value = sortedArray[index]
+//        var position = index
+//
+//        while position > 0 && sortedArray[position - 1] > value {
+//            sortedArray[position] = sortedArray[position - 1]
+//            position -= 1
+//        }
+//        sortedArray[position] = value
+//    }
+//    return sortedArray
+//}
+//
+//print(insertionSort(arr: [70, 36, 40, 95, 22, 55, 26]))
+//
+//func mergeToSortedArrayOfIntegers(firstArray: inout [Int], secondArray:inout [Int]) -> [Int]{
+//
+//    var mergedArray = [Int]()
+//    while !firstArray.isEmpty {
+//
+//        if secondArray.isEmpty {
+//            mergedArray.append(contentsOf: firstArray)
+//        }
+//
+//        var nextValue = 0
+//        if firstArray.first! < secondArray.first! {
+//            nextValue = firstArray.first!
+//            firstArray.removeFirst()
+//        } else {
+//            nextValue = secondArray.first!
+//            secondArray.removeFirst()
+//        }
+//        mergedArray.append(nextValue)
+//    }
+//
+//    // Add the remaining elements from array2 if any:
+//    return mergedArray + secondArray
+//
+//}
+//
+//var arr  = [1,2,3,4,5]
+//var arr2  = [6,7,8,9,12]
+//
+//print(mergeToSortedArrayOfIntegers(firstArray: &arr, secondArray: &arr2))
+//
 
 
 
