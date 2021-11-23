@@ -191,7 +191,7 @@ import Darwin
 //            isPalyndrome = true
 //        } else {
 //            isPalyndrome = false
-//            break
+//            break //dont forget this
 //        }
 //    }
 //    if isPalyndrome {
@@ -327,9 +327,22 @@ import Darwin
 
 
 
+func bubbleSort(_ array: [Int]) -> [Int] {
+    var arr = array
+    for _ in 0...arr.count {
+        for value in 1...arr.count - 1 {
+            if arr[value-1] > arr[value] {
+                let largerValue = arr[value-1]
+                arr[value-1] = arr[value]
+                arr[value] = largerValue
+            }
+        }
+    }
+    print("Sorted\(arr)")
+    return arr
+}
 
-
-
+bubbleSort([1,3,4,2])
 
 
 
@@ -365,3 +378,15 @@ import Darwin
 ////Foundations of Computer Science
 //
 ////Operating Systems
+
+
+//access enum with subscript []
+enum PlanetType: Int {
+    case mercury = 1, venus, earth, mars, jupiter, saturn, uranus, neptune
+    static subscript(key:Int) -> PlanetType? {
+        return PlanetType(rawValue: key)
+    }
+}
+
+let earth = PlanetType[5]
+print(earth)
